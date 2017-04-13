@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "pages/service/service",
+    "pages/case/case",
+    "pages/contact/contact",
+    "pages/dingzhi/dingzhi"
+  ],
+  "window": {
+    "backgroundColor": "#eeeeee",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#333333",
+    "navigationBarTitleText": "悦云信息科技",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#7f7f7f",
+    "selectedColor": "#61a1ff",
+    "backgroundColor": "#f7f7fa",
+    "list": [
+      {
+        "pagePath": "pages/service/service",
+        "text": "开发定制",
+        "iconPath": "assets/img/bt_tab_01.png",
+        "selectedIconPath": "assets/img/bt_tab_s_01.png"
+      },
+      {
+        "pagePath": "pages/case/case",
+        "text": "案例展示",
+        "iconPath": "assets/img/bt_tab_02.png",
+        "selectedIconPath": "assets/img/bt_tab_s_02.png"
+      },
+      {
+        "pagePath": "pages/contact/contact",
+        "text": "联系我们",
+        "iconPath": "assets/img/bt_tab_03.png",
+        "selectedIconPath": "assets/img/bt_tab_s_03.png"
+      }
+    ]
+  }
+}

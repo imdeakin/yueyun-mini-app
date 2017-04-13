@@ -1,0 +1,74 @@
+.form {
+    margin-top: 20rpx;
+    background: white;
+    font-size: 32rpx;
+    padding-left: 42rpx;
+}
+
+.input-group {
+    position: relative;
+    padding:24rpx 0;
+    border-bottom: 1px solid #f3f3f3;
+}
+
+.input-group label {
+    display: inline-block;
+    width: 28%;
+}
+
+.input-group input{
+    display: inline-block;
+    border: none;
+    width: 65%;
+    height: auto;
+    min-height: auto;
+    overflow: inherit;
+    padding-left: 5px;
+}
+
+.input-group textarea {
+    display: inline-block;
+    width: 65%;
+    vertical-align: top;
+    height: 240rpx;
+    padding-left: 5px;
+}
+
+.input-group .error-icon {
+    position: absolute;
+    top: 50%;
+    right: 8%;
+    margin-top: -8px;
+}
+
+.input-group.error input, .input-group.error textarea {
+    outline: 1px solid red;
+}
+
+.msg {
+    margin-top: 30rpx;
+    padding: 20rpx 42rpx;
+    background: white;
+    font-size: 32rpx;
+}
+
+.msg .tips {
+    color: #686868;
+    line-height: 1.6em;
+}
+
+.msg .tel {
+    text-align: center;
+    color: #61a1ff;
+    line-height: 60rpx;
+}
+
+.msg .tel text {
+    padding-left: 30rpx;
+    background: url("http://www.gzyueyun.com/m/yueyun-mini-app/assets/img/tel.png") no-repeat left center/contain;
+}
+
+.footer {
+    margin-top: 20rpx;
+    padding: 0 84rpx;
+}

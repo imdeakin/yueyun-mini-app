@@ -1,0 +1,39 @@
+.footer {
+    margin-top: 72rpx;
+    padding: 0 84rpx;
+}
+
+.contact-info {
+    margin-top: 20rpx;
+    padding: 32rpx;
+    background: white;
+}
+
+.contact-info-title {
+    font-size: 42rpx;
+    color: #61a1ff;
+    font-weight: bold;
+    margin-bottom: 12rpx;
+}
+
+.contact-info-list {
+    margin: 0 -15rpx;
+}
+
+.contact-info-item {
+    font-size: 32rpx;
+    line-height: 58rpx;
+    color: #666666;
+}
+
+.contact-info-item label {
+    display: inline-block;
+    padding-left: 52rpx;
+    background: url("") no-repeat left center/contain;
+}
+
+.contact-info-content {
+    display: inline-block;
+    vertical-align: top;
+}
+

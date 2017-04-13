@@ -1,0 +1,16 @@
+<import src="../../common/tpl/banner-swiper.wxml"/>
+<view>
+    <template is="bannerSwiper" data="{{...bannerSwiperConfig}}"/>
+    <view class="contact-info">
+        <view class="contact-info-title"><text>联系我们</text></view>
+        <view class="contact-info-list">
+            <view class="contact-info-item" wx:for="{{contactInfo}}">
+                <label style="background-image:url('{{item.icon}}')">{{item.title}}：</label>
+                <text class="contact-info-content" selectable="true">{{item.content}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="footer">
+        <navigator class="dz-btn" url="../dingzhi/dingzhi">立即定制</navigator>
+    </view>
+</view>

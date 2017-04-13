@@ -1,0 +1,93 @@
+.block-title {
+    text-align: center;
+    line-height: 110rpx;
+    font-size: 42rpx;
+    font-weight: bold;
+}
+
+.block-title-value {
+    padding-left: 42px;
+    background: url("../../assets/img/block_title_bg.png") no-repeat left center;
+}
+
+.block-title-value text {
+    color: #61a1ff;
+}
+
+.block-title-assist {
+    padding-left: 42px;
+    background: url("../../assets/img/block_title_bg.png") no-repeat right center;
+}
+
+.service-list {
+    background: white;
+    border-top: 1px solid #e3e3e3;
+}
+
+.service-item {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;    
+    display: -webkit-inline-flex;
+    display: inline-flex;
+    align-items: center;
+    width:50%;
+    height: 116rpx;
+    padding-left: 68rpx;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.service-item:nth-of-type(2n + 1) {
+    border-right: 1px solid #e3e3e3;
+}
+
+.service-item > image {
+    width: 58rpx;
+    height: 58rpx;
+    margin-right: 18rpx;
+}
+
+.service-item > text {
+    font-size: 24rpx;
+    color: #7f7f7f;
+}
+
+.dingzhi{
+    margin-top: 24rpx;
+    padding: 60rpx 50rpx;
+    background: url("http://www.gzyueyun.com/m/yueyun-mini-app/assets/img/dz_bg.png") no-repeat bottom center/contain white;
+}
+
+.flow-process {
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flow-process-item {
+    flex-grow: 3;
+    text-align: center;
+    padding: 12rpx 0;
+    background: #fafafa;
+    border-radius: 4px;
+    box-shadow: 0 0 1px 1px #e4e4e4;
+}
+
+.flow-process-index {
+    display: block;
+    font-size: 48rpx;
+    color: #61a1ff;
+}
+
+.flow-process-title {
+    display: block;
+    font-size: 24rpx;
+    color: #7f7f7f;
+}
+
+.flow-process-arrow {
+    flex-grow: 1.5;
+    width: 17rpx;
+    height: 34rpx;
+    background: url("http://www.gzyueyun.com/m/yueyun-mini-app/assets/img/flow_process_right_arrow.png") no-repeat center/contain;
+}

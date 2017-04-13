@@ -1,0 +1,28 @@
+<import src="../../common/tpl/banner-swiper.wxml"/>
+<view>
+    <template is="bannerSwiper" data="{{...bannerSwiperConfig}}"/>
+    <view class="block-title">
+        <text class="block-title-value"><text>六</text>大服务 <text>全</text>线开发</text>
+        <text class="block-title-assist"></text>
+    </view>
+    <view class="service-list">
+        <view class="service-item" wx:for="{{serviceList}}">
+            <image src="{{item.icon}}"></image>
+            <text>{{item.title}}</text>
+        </view>
+    </view>
+    <view class="dingzhi">
+        <view class="flow-process">
+            <block wx:for="{{flowProcessList}}">
+                <view class="flow-process-item">
+                    <view class="flow-process-con">
+                        <text class="flow-process-index">{{index}}</text>
+                        <text class="flow-process-title">{{item}}</text>
+                    </view>
+                </view>
+                <view class="flow-process-arrow" wx:if="{{index < flowProcessList.length-1}}"></view>                
+            </block>
+        </view>
+        <navigator class="dz-btn" url="../dingzhi/dingzhi">立即定制</navigator>
+    </view>
+</view>

@@ -1,0 +1,14 @@
+<import src="../../common/tpl/banner-swiper.wxml"/>
+<view>
+    <template is="bannerSwiper" data="{{...bannerSwiperConfig}}"/>
+    <view class="case-list">
+        <view class="case-item" wx:for="{{caseList}}">
+            <image src="{{item.img}}" mode="widthFix"></image>
+            <view class="case-title"><text>{{item.title}}</text></view>
+        </view>
+    </view>
+    <view class="tips"><text>查看更多案例详情，请浏览我们的官网（<text selectable="{{true}}">www.gzyueyun.com</text>）</text></view>
+    <view class="footer">
+        <navigator class="dz-btn" url="../dingzhi/dingzhi">立即定制</navigator>
+    </view>
+</view>

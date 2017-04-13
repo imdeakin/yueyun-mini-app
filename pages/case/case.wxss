@@ -1,0 +1,24 @@
+.case-list {
+    padding: 20rpx 30rpx;
+}
+
+.case-item image {
+    width: 100%;
+}
+
+.case-item .case-title {
+    text-align: center;
+    line-height: 80rpx;
+    font-size: 42rpx;
+}
+
+.tips {
+    font-size: 32rpx;
+    color: #909090;
+    text-align: center;
+}
+
+.footer {
+    margin: 30rpx 0;
+    padding: 0 84rpx;
+}

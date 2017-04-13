@@ -1,0 +1,40 @@
+<import src="../../common/tpl/banner-swiper.wxml"/>
+<view>
+    <template is="bannerSwiper" data="{{...bannerSwiperConfig}}"/>
+    <form bindsubmit="formSubmit">
+        <view class="form">
+            <view class="input-group {{ formData.name.error ? 'error' : '' }}">
+                <label>联系人</label>
+                <input type="text" name="name" value="{{formData.name.value}}" data-name="name" placeholder="请输入您的姓名" 
+                bindinput="updateFormData" bindblur="formCheck"/>
+                <icon class="error-icon" type="cancel" color="red" size="16" wx:if="{{formData.name.error}}"/>
+            </view>
+            <view class="input-group {{ formData.phone.error ? 'error' : '' }}">
+                <label>联系电话</label>
+                <input type="text" name="phone" value="{{formData.phone.value}}" data-name="phone" placeholder="请输入您的电话号码" 
+                bindinput="updateFormData" bindblur="formCheck"/>
+                <icon class="error-icon" type="cancel" color="red" size="16" wx:if="{{formData.phone.error}}"/>
+            </view>
+            <view class="input-group {{ formData.email.error ? 'error' : '' }}">
+                <label>邮箱</label>
+                <input type="text" name="email" value="{{formData.email.value}}" data-name="email" placeholder="请输入您的电子邮箱" 
+                bindinput="updateFormData" bindblur="formCheck"/>
+                <icon class="error-icon" type="cancel" color="red" size="16" wx:if="{{formData.email.error}}"/>
+            </view>
+            <view class="input-group {{ formData.word.error ? 'error' : '' }}">
+                <label>留言</label>
+                <textarea name="word" value="{{formData.word.value}}" data-name="word" placeholder="请在这里填写您的定制要求" 
+                bindinput="updateFormData" bindblur="formCheck"/>
+                <icon class="error-icon" type="cancel" color="red" size="16" wx:if="{{formData.word.error}}"/>
+            </view>
+        </view>
+        <view class="msg">
+            <view class="tips"><text>提交需求后，将会有专人联系您，请耐心等候！您也可以拨打电话咨询。</text></view>
+            <view class="tel" bindtap="makePhoneCall"><text>咨询电话：{{phone}}</text></view>
+        </view>
+        <view class="footer">
+            <button class="dz-btn" formType="submit" loading="{{formStatus.submitting}}"
+             disabled="{{formStatus.submitting}}">立即定制</button>
+        </view>
+    </form>
+</view>
