@@ -17,6 +17,29 @@ Page({
         getApp().getBannerList(this);
         this.getCaseList();
     },
+    onShareAppMessage: function () {
+        return {
+            title: '互联网开发定制平台',
+            path: '/pages/case/case',
+            success: function (res) {
+                wx.showModal({
+                    title: "提示",
+                    content: "分享成功，感谢您的支持",
+                    showCancel: false
+                });
+            },
+            fail: function (res) {
+                console.log(res.errMsg);
+                if (res.errMsg.search('cancel')) return;
+
+                wx.showModal({
+                    title: "提示",
+                    content: "分享失败，请检查网络或重试",
+                    showCancel: false
+                });
+            }
+        }
+    },
     getCaseList: function () {
         var $this = this;
         wx.showLoading({
@@ -50,7 +73,7 @@ Page({
                     fail: function (res) {
                         console.error("get case list error!");
                     },
-                    complete: function() {
+                    complete: function () {
                         wx.hideLoading();
                     }
                 });

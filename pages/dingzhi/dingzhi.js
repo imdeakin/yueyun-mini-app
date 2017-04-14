@@ -11,8 +11,9 @@ Page({
             name: {
                 value: "",
                 error: false,
-                tips: "",
-                changed: false
+                tips: "1341234",
+                changed: false,
+                focused: false
             },
             phone: {
                 value: "",
@@ -83,6 +84,29 @@ Page({
             }
         });
     },
+    onShareAppMessage: function () {
+        return {
+            title: '互联网开发定制平台',
+            path: '/pages/dingzhi/dingzhi',
+            success: function (res) {
+                wx.showModal({
+                    title: "提示",
+                    content: "分享成功，感谢您的支持",
+                    showCancel: false
+                });
+            },
+            fail: function (res) {
+                console.log(res.errMsg);
+                if (res.errMsg.search('cancel')) return;
+
+                wx.showModal({
+                    title: "提示",
+                    content: "分享失败，请检查网络或重试",
+                    showCancel: false
+                });
+            }
+        }
+    },
     // 拨打热线电话
     makePhoneCall: function (e) {
         wx.makePhoneCall({
@@ -143,8 +167,16 @@ Page({
 
                     if (res.data.success) {
 
-                        wx.switchTab({
-                            url: '/page/service/service'
+                        var delay = 1500;
+                        wx.showToast({
+                            title: "提交成功",
+                            icon: "success",
+                            duration: delay,
+                            success: function () {
+                                setTimeout(function () {
+                                    $this.resetForm();
+                                }, delay);
+                            }
                         });
 
                     } else {
@@ -182,6 +214,27 @@ Page({
 
         }
     },
+    // 重置表单
+    resetForm: function () {
+        var formData = this.data.formData;
+        console.log(formData);
+        for (var name in formData) {
+            var item = formData[name];
 
+            for (var key in item) {
+                if (typeof item[key] === 'string') {
+                    item[key] = '';
+                } else if (typeof item[key] === 'boolean') {
+                    item[key] = false;
+                }
+            }
+
+            formData[name] = item;
+        }
+        console.log(formData);
+        this.setData({
+            'formData': formData
+        });
+    },
     wxValidate: null
 });

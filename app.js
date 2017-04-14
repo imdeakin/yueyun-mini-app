@@ -70,8 +70,8 @@ App({
                         "http://www.gzyueyun.com/m/yueyun-mini-app/assets/img/banner_01.png",
                         "http://www.gzyueyun.com/m/yueyun-mini-app/assets/img/banner_02.png",
                         "http://www.gzyueyun.com/m/yueyun-mini-app/assets/img/banner_02.png"
-                    ]
-                    $this.globalData.bannerSwiperConfig.imgUrls = imgUrls;                    
+                    ];
+                    $this.globalData.bannerSwiperConfig.imgUrls = imgUrls;
                     currentPage.setData({
                         "bannerSwiperConfig.imgUrls": imgUrls
                     });
