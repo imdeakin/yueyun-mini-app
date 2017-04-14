@@ -3,29 +3,35 @@
     <template is="bannerSwiper" data="{{...bannerSwiperConfig}}"/>
     <form bindsubmit="formSubmit">
         <view class="form">
-            <view class="input-group {{ formData.name.error ? 'error' : '' }}">
+            <view class="input-group {{ formData.name.error ? 'error' : '' }} {{ formData.name.focused ? 'focused' : '' }}">
                 <label>联系人</label>
-                <input type="text" name="name" value="{{formData.name.value}}" data-name="name" placeholder="请输入您的姓名" 
-                bindinput="updateFormData" bindblur="formCheck"/>
-                <icon class="error-icon" type="cancel" color="red" size="16" wx:if="{{formData.name.error}}"/>
+                <input type="text" class="{{ formData.name.focused ? 'focused' : '' }}" 
+                name="name" value="{{formData.name.value}}" data-name="name" placeholder="请输入您的姓名" 
+                bindinput="updateFormData" bindfocus="onFocus" bindblur="formCheck"/>
+                <icon class="error-icon" type="cancel" color="red" size="16" 
+                hidden="{{!(formData.name.error && formData.name.focused)}}"/>
             </view>
-            <view class="input-group {{ formData.phone.error ? 'error' : '' }}">
+            <view class="input-group {{ formData.phone.error ? 'error' : '' }} {{ formData.phone.focused ? 'focused' : '' }}">
                 <label>联系电话</label>
                 <input type="text" name="phone" value="{{formData.phone.value}}" data-name="phone" placeholder="请输入您的电话号码" 
-                bindinput="updateFormData" bindblur="formCheck"/>
-                <icon class="error-icon" type="cancel" color="red" size="16" wx:if="{{formData.phone.error}}"/>
+                bindinput="updateFormData" bindfocus="onFocus" bindblur="formCheck"/>
+                <icon class="error-icon" type="cancel" color="red" size="16" 
+                hidden="{{!(formData.phone.error && formData.phone.focused)}}"/>
             </view>
-            <view class="input-group {{ formData.email.error ? 'error' : '' }}">
+            <view class="input-group {{ formData.email.error ? 'error' : '' }} {{ formData.email.focused ? 'focused' : '' }}">
                 <label>邮箱</label>
                 <input type="text" name="email" value="{{formData.email.value}}" data-name="email" placeholder="请输入您的电子邮箱" 
-                bindinput="updateFormData" bindblur="formCheck"/>
-                <icon class="error-icon" type="cancel" color="red" size="16" wx:if="{{formData.email.error}}"/>
+                bindinput="updateFormData" bindfocus="onFocus" bindblur="formCheck"/>
+                <icon class="error-icon" type="cancel" color="red" size="16" 
+                hidden="{{!(formData.email.error && formData.email.focused)}}"/>
             </view>
-            <view class="input-group {{ formData.word.error ? 'error' : '' }}">
+            <view class="input-group {{ formData.word.error ? 'error' : '' }} {{ formData.word.focused ? 'focused' : '' }}">
                 <label>留言</label>
-                <textarea name="word" value="{{formData.word.value}}" data-name="word" placeholder="请在这里填写您的定制要求" 
-                bindinput="updateFormData" bindblur="formCheck"/>
-                <icon class="error-icon" type="cancel" color="red" size="16" wx:if="{{formData.word.error}}"/>
+                <textarea name="word" value="{{formData.word.value}}" 
+                data-name="word" placeholder="请在这里填写您的定制要求" 
+                bindinput="updateFormData" bindfocus="onFocus" bindblur="formCheck"/>
+                <icon class="error-icon" type="cancel" color="red" size="16" 
+                hidden="{{!(formData.word.error && formData.word.focused)}}"/>
             </view>
         </view>
         <view class="msg">

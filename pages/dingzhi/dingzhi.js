@@ -1,6 +1,8 @@
 var wxValidate = require('../../assets/js/wxValidate.js').wxValidate;
 var api = require('../../assets/js/api.js');
 
+// debug_01: textarea 在首次加载时会自动触发blur事件的bug
+
 Page({
     data: {
         bannerSwiperConfig: getApp().globalData.bannerSwiperConfig,
@@ -9,22 +11,26 @@ Page({
             name: {
                 value: "",
                 error: false,
-                tips: ""
+                tips: "",
+                changed: false
             },
             phone: {
                 value: "",
                 error: false,
-                tips: ""
+                tips: "",
+                changed: false
             },
             email: {
                 value: "",
                 error: false,
-                tips: ""
+                tips: "",
+                changed: false
             },
             word: {
                 value: "",
                 error: false,
-                tips: ""
+                tips: "",
+                changed: false
             }
         },
         formStatus: {
@@ -78,24 +84,35 @@ Page({
         });
     },
     // 拨打热线电话
-    makePhoneCall: function () {
+    makePhoneCall: function (e) {
         wx.makePhoneCall({
             phoneNumber: this.data.phone
         });
+    },
+    onFocus: function (e) {
+        var name = e.target.dataset.name,
+            value = e.detail.value,
+            key = "formData." + name,
+            opts = {};
+        opts[key + ".focused"] = true;
+        this.setData(opts);
     },
     // 表单数据绑定
     updateFormData: function (e) {
         var name = e.target.dataset.name,
             value = e.detail.value,
-            key = "formData." + name + ".value",
+            key = "formData." + name,
             opts = {};
-        opts[key] = value;
+        opts[key + ".value"] = value;
+        opts[key + ".changed"] = true;
         this.setData(opts);
     },
     // 更新表单验证结果
     updateErrorData: function (errorData) {
         var key = "formData." + errorData.name,
             opts = {};
+
+        if (!this.data.formData[errorData.name]['focused']) return; // 未聚集的忽略验证结果 // debug_01
 
         opts[key + '.value'] = errorData.value;
         opts[key + '.error'] = !errorData.valid; // error === !valid
@@ -153,7 +170,14 @@ Page({
         } else { // 验证不通过
 
             for (var key in result.detail) {
-                this.updateErrorData(result.detail[key]);
+
+                // debug_01
+                var fKey = 'formData.' + key + '.focused',
+                    opt = {};
+                opt[fKey] = true;
+                this.setData(opt); // 设置成聚集状态  // debug_01
+
+                this.updateErrorData(result.detail[key]); // 设置验证状态
             }
 
         }

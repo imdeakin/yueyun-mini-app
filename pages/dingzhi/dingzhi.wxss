@@ -41,7 +41,7 @@
     margin-top: -8px;
 }
 
-.input-group.error input, .input-group.error textarea {
+.input-group.error.focused input, .input-group.error.focused textarea {
     outline: 1px solid red;
 }
 

@@ -80,7 +80,7 @@ App({
                 }
             },
             fail: function (res) {
-                console.error("Get banner list error!");
+                console.error("Get banner list error! errMsg: " + res.errMsg);
             }
         });
     }
